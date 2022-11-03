@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/aos.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Órarend Manager</title>
+</head>
+<body ng-app="app">
+    <div class="container-fluid mx-0 px-0">
+        <header class="p-5">
+            <h1 class="fs-1">{{title}}</h1>
+        </header>
+        <main class="p-5">
+            <div class="row">
+                <aside class="col-lg-4" ng-controller="form">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Tanár neve:</label>
+                        <input type="text" ng-model="NewClass.teacher" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Tantárgy:</label>
+                        <select name="" class="form-select" ng-model="NewClass.subject" ng-controller="subject">
+                            <option value="{{subject}}" ng-repeat="subject in subjects">{{subject}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Teremszám:</label>
+                        <select class="form-select" name="" ng-model="NewClass.place" ng-controller="terem" >
+                            <option ng-repeat="terem in termek" value="{{terem.split(' ')[0]}}">{{terem}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Óraszám:</label>
+                        <select name="" ng-model="NewClass.time" class="form-select" ng-controller="ora">
+                            <option ng-repeat="ora in orak" class="form-select" value="{{ora}}">{{ora}}. óra</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nap:</label>
+                        <select name="" class="form-select" ng-model="NewClass.day" ng-controller="nap">
+                            <option ng-repeat="nap in napok" value="{{nap}}">{{nap}}</option>
+                        </select>
+                    </div>
+                    <button ng-click="AddClass()" type="button" class="btn">Hozzáadás</button>
+                    <hr>
+                    <button ng-click="Print()" type="button" class="btn">Nyomtatás</button>
+                </aside>
+                <section class="col-lg-8 border-start border-dark" ng-controller="classes">
+                    <table ng-controller="classes" class="table table-light">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="day in days">{{day}}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-animate.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/controller/teremController.js"></script>
+    <script src="./js/controller/oraController.js"></script>
+    <script src="./js/controller/napController.js"></script>
+    <script src="./js/controller/classesController.js"></script>
+    <script src="./js/controller/subjectController.js"></script>
+    <script src="./js/controller/formController.js"></script>
+    
+</body>
+</html>

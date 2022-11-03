@@ -1,0 +1,35 @@
+@font-face{
+    font-family: 'Fira Sans';
+    src: url(../fonts/FiraSans-Light.ttf);
+}
+:root{
+    --primary: rgb(78, 150, 78);
+    --secondary: rgb(235, 235, 235);
+    --links: rgb(85, 255, 62);
+    --alt: #ccc;
+}
+
+.btn{
+    background-color: var(--primary);
+    color:white;
+    font-weight: bold;
+    border:0.15rem solid var(--primary)
+}
+.btn:hover{
+    border:0.15rem solid var(--primary)
+}
+body{
+    font-family: 'Fira Sans';
+}
+header{
+    background-color: var(--primary);
+    color: var(--secondary);
+    text-align: center;
+}
+main{
+    background-color: var(--secondary);
+}
+footer{
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+}
