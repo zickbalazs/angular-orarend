@@ -1,14 +1,47 @@
 @font-face{
     font-family: 'Fira Sans';
-    src: url(../fonts/FiraSans-Light.ttf);
+    src: url(../fonts/FiraSans-Regular.ttf);
 }
 :root{
     --primary: rgb(78, 150, 78);
     --secondary: rgb(235, 235, 235);
     --links: rgb(85, 255, 62);
     --alt: #ccc;
+    --Frontend: var(--primary);
+    --ABSZ: rgb(212, 52, 52);
+    --Backend: var(--bs-primary);
+    --Szakmai: var(--bs-warning);
+    --Asztali: var(--bs-info);
+    --Ne: var(--bs-danger);
 }
-
+.bi-pen-fill, .bi-x-lg{
+    cursor:pointer;
+    padding-bottom:0.5rem;
+}
+.Szakmai{background:var(--Szakmai);}
+.ABSZ{background: var(--ABSZ);}
+.Frontend{background: var(--Frontend);}
+.Backend{background: var(--Backend);}
+.Ne{background: var(--Ne);}
+.Asztali{background:var(--Asztali);}
+.crd{
+    display:inline-block;
+    position:relative;
+    width: 100%;
+    color:white;
+    border-radius: 0.25rem;
+}
+.flex{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+.class{
+    padding: 1rem;
+    text-align: center;
+    font-size:2rem;
+}
 .btn{
     background-color: var(--primary);
     color:white;
@@ -33,3 +66,24 @@ footer{
     background-color: var(--bs-dark);
     color: var(--bs-light);
 }
+
+tbody>*, tbody>*>*{
+    border-width: 2px !important;
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+    opacity:0;
+    transform:scale(75%);
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+    opacity:1;
+    transform:scale(100%);
+}
+  
+  
