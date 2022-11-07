@@ -10,11 +10,14 @@ app.run(function($rootScope){
     $rootScope.ErrorMessage = false;
     $rootScope.CanEdit = false;
     $rootScope.errortype = "";
-    $rootScope.Remove = function(index){
-        $rootScope.errormessage = "Óra törölve";
-        $rootScope.errortype = "primary";
-        $rootScope.icon = "bi-info-circle";
+    $rootScope.SetMessage = function(message, type, icon){
+        $rootScope.errormessage = message;
+        $rootScope.errortype = type;
+        $rootScope.icon = icon;
         $rootScope.ErrorMessage = true;
+    };
+    $rootScope.Remove = function(index){
+        $rootScope.SetMessage('Sikeres törlés!', 'success', 'bi-check-circle');
         $rootScope.CanEdit = false;
         $rootScope.classes.splice($rootScope.classes.findIndex(e=>e==index), 1);
         $rootScope.SaveLocal();

@@ -3,12 +3,7 @@ app.controller("form", function($scope, $rootScope){
     $scope.ChangeID = -1;
     $scope.AddClass = function(){
         console.log($scope.NewClass.teacher)
-        if (!$scope.CorrectData()){
-            $rootScope.errormessage = "Hibás adatok!"
-            $rootScope.errortype = "danger";
-            $rootScope.icon = "bi-exclamation-circle";
-            $rootScope.ErrorMessage = true;
-        }
+        if (!$scope.CorrectData()) $rootScope.SetMessage('Hibás adatok!', 'danger', 'bi-exclamation-circle');
         else{
             let scope = $scope.NewClass;
             $rootScope.classes.push({
@@ -19,10 +14,7 @@ app.controller("form", function($scope, $rootScope){
                 time:scope.time
             });
             $rootScope.SaveLocal();
-            $rootScope.errormessage = "Sikeres mentés"
-            $rootScope.errortype = "success";
-            $rootScope.icon = "bi-check-circle";
-            $rootScope.ErrorMessage = true;
+            $rootScope.SetMessage('Sikeres mentés!', 'success', 'bi-check-circle');
         }
     }
     $scope.CorrectData = function(){
@@ -57,16 +49,8 @@ app.controller("form", function($scope, $rootScope){
             $rootScope.CanEdit = false;   
             $scope.NewClass = {};     
             $rootScope.SaveLocal();
-            $rootScope.icon = "bi-check-circle";
-            $rootScope.errormessage="Sikeres módosítás!";
-            $rootScope.errortype="success";
-            $rootScope.ErrorMessage=true;
+            $rootScope.SetMessage('Sikeres módosítás!', 'success', 'bi-check-circle');
         }
-        else{
-            $rootScope.errormessage = "Hibás adatok!"
-            $rootScope.errortype = "danger";
-            $rootScope.icon = "bi-exclamation-circle";
-            $rootScope.ErrorMessage = true;
-        }
+        else $rootScope.SetMessage('Hibás adatok!', 'danger', 'bi-exclamation-circle');
     }
 })
